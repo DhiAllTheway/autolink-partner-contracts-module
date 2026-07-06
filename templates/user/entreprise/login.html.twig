@@ -1,0 +1,31 @@
+{# user/login.html.twig #}
+
+{% block body %}
+    <h2>Connexion utilisateur</h2>
+
+    <form method="post" action="{{ path('login') }}">
+        <div>
+            <label for="username">Email</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" required autofocus />
+        </div>
+
+        <div>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="_password" required />
+        </div>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        {% if error %}
+            <div class="error">
+                <p>{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            </div>
+        {% endif %}
+
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <div>
+        <a href="{{ path('create_account') }}">Créer un compte</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{# templates/user/client/login.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion Client - AutoLink{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-md-6">
+        <div class="form-container">
+            <h2 class="mb-4 text-center font-weight-bold">Connexion Client</h2>
+
+            {# Flash messages for errors or success notifications #}
+            <div class="flash-messages">
+                {% for type, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+
+            {# Login form #}
+            {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+                
+                {# Email field #}
+                <div class="mb-4 form-group">
+                    {{ form_label(form._username, 'Email', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form._username, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre email'}}) }}
+                    <div class="form-error text-danger">
+                        {{ form_errors(form._username) }}
+                    </div>
+                </div>
+
+                {# Password field #}
+                <div class="mb-4 form-group">
+                    {{ form_label(form._password, 'Mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form._password, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre mot de passe'}}) }}
+                    <div class="form-error text-danger">
+                        {{ form_errors(form._password) }}
+                    </div>
+                </div>
+
+                {# Submit button #}
+                <div class="d-grid">
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-lg'}}) }}
+                </div>
+
+            {{ form_end(form) }}
+
+            {# Link to create an account #}
+            <div class="mt-3 text-center">
+                <p>Vous n'avez pas de compte ? <a href="{{ path('create_account') }}">Créer un compte</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

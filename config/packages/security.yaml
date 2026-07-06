@@ -1,0 +1,43 @@
+security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        App\Entity\User:
+            algorithm: auto
+
+    providers:
+        user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        user:
+            pattern: ^/
+            lazy: true
+            provider: user_provider
+            form_login:
+                login_path: login
+                check_path: login
+                default_target_path: profile
+                username_parameter: _username
+                password_parameter: _password
+                enable_csrf: true
+                csrf_token_id: authenticate
+            logout:
+                path: /logout
+                target: login
+            security: true
+            entry_point: form_login
+    
+    access_control:
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/create-account, roles: PUBLIC_ACCESS }
+        - { path: ^/profile, roles: ROLE_CLIENT }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin/list, roles: ROLE_ADMIN }
+        - { path: ^/entreprise-dashboard, roles: [ROLE_ENTREPRISE] }
+

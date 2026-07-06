@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Contract{% endblock %}
+
+{% block body %}
+
+    <h2>New Contract</h2>
+
+    {# ✅ Show Flash Messages for success & error #}
+    {% for message in app.flashes('success') %}
+        <div style="color: green; margin-bottom: 10px;">{{ message }}</div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div style="color: red; margin-bottom: 10px;">{{ message }}</div>
+    {% endfor %}
+
+    {# ✅ Start the form #}
+    {{ form_start(form) }}
+
+    <div>
+        <label>Receiver:</label>
+        {{ form_widget(form.receiver, {'attr': {'style': 'width: 100%; padding: 5px;'}}) }}
+    </div>
+
+    <div style="margin-top: 10px;">
+        <label>Content:</label>
+        {{ form_widget(form.content, {'attr': {'style': 'width: 100%; padding: 5px; height: 100px;'}}) }}
+    </div>
+
+    <div style="margin-top: 15px;">
+        <button type="submit" style="background-color: #8B0000; color: white; padding: 10px; border: none; cursor: pointer;">
+            Create Contract
+        </button>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}

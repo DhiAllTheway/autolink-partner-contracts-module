@@ -1,0 +1,132 @@
+{# templates/user/admin/list_Admins.html.twig #}
+{% extends 'baseAdmin.html.twig' %}
+{% block title %}Admin List - Autolink{% endblock %}
+{% block page_title %}Admin List{% endblock %}
+{% block content %}
+    <!-- List of Admins -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">List of Admins</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Date Creation</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for admin in admins %}
+                            <tr>
+                                <td>{{ admin.id }}</td>
+                                <td>{{ admin.name }}</td>
+                                <td>{{ admin.lastName }}</td>
+                                <td>{{ admin.email }}</td>
+                                <td>{{ admin.phone }}</td>
+                                <td>{{ admin.createdAt|date('Y-m-d H:i:s') }}</td>
+                               <td>
+    <a href="{{ path('edit_user', { 'id': admin.id }) }}" class="btn btn-primary btn-sm">Edit</a>
+    <a href="{{ path('delete_user', { 'id': admin.id }) }}" onclick="return confirm('Are you sure you want to delete this Admin?');" class="btn btn-danger btn-sm">Delete</a>
+</td>
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7" class="text-center">No admins found.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- List of ROLE_ENTREPRISE Users -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">List of Entreprises</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entreprise in entreprises %}
+                            <tr>
+                                <td>{{ entreprise.id }}</td>
+                                <td>{{ entreprise.name }}</td>
+                                <td>{{ entreprise.email }}</td>
+                                <td>{{ entreprise.phone }}</td>
+                                <td>
+    <a href="{{ path('edit_user', { 'id': entreprise.id }) }}" class="btn btn-primary btn-sm">Edit</a>
+    <a href="{{ path('delete_user', { 'id': entreprise.id }) }}" onclick="return confirm('Are you sure you want to delete this Entreprise?');" class="btn btn-danger btn-sm">Delete</a>
+</td>
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center">No entreprises found.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- List of ROLE_CLIENT Users -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">List of Clients</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for client in clients %}
+                            <tr>
+                                <td>{{ client.id }}</td>
+                                <td>{{ client.name }}</td>
+                                <td>{{ client.email }}</td>
+                                <td>{{ client.phone }}</td>
+                                <td>
+    <a href="{{ path('edit_user', { 'id': client.id }) }}" class="btn btn-primary btn-sm">Edit</a>
+    <a href="{{ path('delete_user', { 'id': client.id }) }}" onclick="return confirm('Are you sure you want to delete this Client?');" class="btn btn-danger btn-sm">Delete</a>
+</td>
+
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center">No clients found.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

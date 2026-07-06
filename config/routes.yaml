@@ -1,0 +1,25 @@
+# config/routes.yaml
+
+# Default controller routes (if any)
+app_controller:
+    resource: ../src/Controller/
+    type: attribute
+
+# PartnershipRequestController routes
+partnership_request:
+    path: /partnership-request
+    controller: App\Controller\PartnershipRequestController::index
+    methods: [GET, POST]
+    defaults:
+        _is_granted: ROLE_ENTREPRISE # Ensures only users with ROLE_ENTREPRISE can access this route
+
+partnership_request_submitted:
+    path: /partnership-request/success
+    controller: App\Controller\PartnershipRequestController::success
+    methods: [GET]
+
+entreprise_dashboard:
+    path: /entreprise-dashboard
+    controller: App\Controller\EntrepriseController::dashboard
+    defaults:
+        _is_granted: ROLE_ENTREPRISE

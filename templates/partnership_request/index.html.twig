@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Partnership Request{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4" style="max-width: 600px; margin: auto; border-top: 5px solid red;">
+            <h2 class="text-center text-danger">
+                <i class="fas fa-handshake"></i> Partnership Request
+            </h2>
+            <hr>
+
+{{ form_start(form, { attr: { class: 'needs-validation' } }) }}
+
+    <div class="form-group">
+        <label for="{{ form.companyEmail.vars.id }}">
+            <i class="fas fa-envelope text-danger"></i> Company Email
+        </label>
+        {{ form_widget(form.companyEmail, { attr: { class: 'form-control', placeholder: 'Enter company email' } }) }}
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="{{ form.phone.vars.id }}">
+            <i class="fas fa-phone text-danger"></i> Phone
+        </label>
+        {{ form_widget(form.phone, { attr: { class: 'form-control', placeholder: 'Enter phone number' } }) }}
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="{{ form.address.vars.id }}">
+            <i class="fas fa-map-marker-alt text-danger"></i> Address
+        </label>
+        {{ form_widget(form.address, { attr: { class: 'form-control', placeholder: 'Enter company address' } }) }}
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="{{ form.taxCode.vars.id }}">
+            <i class="fas fa-file-invoice-dollar text-danger"></i> Tax Code
+        </label>
+        {{ form_widget(form.taxCode, { attr: { class: 'form-control', placeholder: 'Enter tax code' } }) }}
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="{{ form.partnershipType.vars.id }}">
+            <i class="fas fa-handshake text-danger"></i> Partnership Type
+        </label>
+        {{ form_widget(form.partnershipType, { attr: { class: 'form-control' } }) }}
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="{{ form.description.vars.id }}">
+            <i class="fas fa-align-left text-danger"></i> Description
+        </label>
+        {{ form_widget(form.description, { attr: { class: 'form-control', rows: 3, placeholder: 'Provide details about the partnership' } }) }}
+    </div>
+
+    {# ✅ Ensure CSRF token is included #}
+    {{ form_rest(form) }}
+
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-danger btn-lg">
+            <i class="fas fa-paper-plane"></i> Submit Request
+        </button>
+    </div>
+
+{{ form_end(form) }}
+        </div>
+    </div>
+
+    {# Include FontAwesome for icons #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+{% endblock %}

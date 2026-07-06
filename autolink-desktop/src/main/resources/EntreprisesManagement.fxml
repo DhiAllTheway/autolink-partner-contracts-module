@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controllers.EntreprisesManagementController"
+      style="-fx-background-color: #f9f9f9;">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="📊 Gestion des Entreprises"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #ca8a62;" />
+        <ImageView fx:id="addEntrepriseButton" fitHeight="28" fitWidth="28" preserveRatio="true" pickOnBounds="true">
+            <image>
+                <Image url="@icons/plus.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+    </HBox>
+
+    <ScrollPane fitToWidth="true">
+        <content>
+            <FlowPane fx:id="entreprisesFlowPane" hgap="20" vgap="20" prefWrapLength="800" />
+        </content>
+    </ScrollPane>
+</VBox>

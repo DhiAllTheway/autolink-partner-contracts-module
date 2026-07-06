@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.UserEntrepriseListController"
+      spacing="15" style="-fx-padding: 20;">
+
+    <Label text="Mes Entreprises" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Search by company name..." />
+        <ComboBox fx:id="sortComboBox" promptText="Sort by" prefWidth="150"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" fitToHeight="true">
+        <content>
+            <FlowPane fx:id="userEntrepriseContainer" hgap="20" vgap="20" />
+        </content>
+    </ScrollPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Previous" onAction="#handlePreviousPage"/>
+        <Label fx:id="pageNumberLabel" text="Page 1" />
+        <Button text="Next" onAction="#handleNextPage"/>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la demande de partenariat{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2>Modifier votre demande de partenariat</h2>
+        
+        {{ form_start(form, {'attr': {'class': 'needs-validation'}}) }}
+            <div class="mb-3">
+                {{ form_label(form.companyEmail) }}
+                {{ form_widget(form.companyEmail, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.companyEmail) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.phone) }}
+                {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.phone) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.address) }}
+                {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.address) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.taxCode) }}
+                {{ form_widget(form.taxCode, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.taxCode) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.partnershipType) }}
+                {{ form_widget(form.partnershipType, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.partnershipType) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_label(form.description) }}
+                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.description) }}
+            </div>
+
+            <div class="mb-3">
+    {{ form_label(form.entreprise) }}
+    {{ form_widget(form.entreprise, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.entreprise) }}
+</div>
+
+
+            <button type="submit" class="btn btn-dark w-100 py-2">Mettre à jour</button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('partnership_request') }}" class="btn btn-outline-secondary mt-3">Retour</a>
+    </div>
+{% endblock %}

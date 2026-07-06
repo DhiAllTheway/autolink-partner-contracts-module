@@ -1,0 +1,25 @@
+/vendor/
+/var/
+/node_modules/
+
+.env
+.env.local
+.env.dev
+.env.test
+
+/.idea/
+/.vscode/
+
+*.log
+# ----------------------------------------------------
+# Java / JavaFX rules for the desktop module
+# ----------------------------------------------------
+autolink-desktop/target/
+autolink-desktop/out/
+autolink-desktop/.idea/
+autolink-desktop/*.iml
+autolink-desktop/.settings/
+autolink-desktop/.classpath
+autolink-desktop/.project
+bin/
+*.class

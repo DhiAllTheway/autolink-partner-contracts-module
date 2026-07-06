@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.PartnershipRequestsController"
+      spacing="15" style="-fx-padding: 20;">
+
+    <Button fx:id="addRequestBtn" text="➕ Add Partnership Request" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-size: 14px;"/>
+
+    <ScrollPane fitToWidth="true">
+        <content>
+            <FlowPane fx:id="cardContainer" hgap="20" vgap="20">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+            </FlowPane>
+
+        </content>
+    </ScrollPane>
+</VBox>
