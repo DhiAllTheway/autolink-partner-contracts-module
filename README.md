@@ -1,91 +1,76 @@
-Autolink — Enterprise & Desktop Modules
+# 🚗 Autolink — Enterprise & Desktop Modules
 
-This repository contains my personal contribution to Autolink, a university team project developed by a group of five students.
+This repository contains my personal contribution to **Autolink**, a university team project developed by a group of five students.  
 Autolink is a platform that connects users and companies involved in the recycling and resale of vehicle parts.
 
-Note: This repository does not contain the complete application. It only includes the modules I designed and implemented (Symfony Web Module + JavaFX Desktop Admin Client). The full team project is available here:
-Full project: https://github.com/AutolinkTechX
+> ⚠️ **Note:** This repository does not contain the complete application. It only includes the modules I designed and implemented (**Symfony Web Module + JavaFX Desktop Admin Client**). The full team project is available here:  
+> 🔗 **Full project:** [https://github.com/AutolinkTechX](https://github.com/AutolinkTechX)
 
-My Contribution
+---
 
-I was responsible for designing and implementing the Enterprise Module across two platforms: the Symfony Web Backend and a complementary JavaFX Desktop Management Client. This includes authentication, enterprise management, partnerships, contracts, and marketplace integration.
+## 🧠 My Contribution
 
-Features
+I was responsible for designing and implementing the **Enterprise Module** across two distinct platforms: the **Symfony Web Backend** and a complementary **JavaFX Desktop Management Client**. This architecture handles authentication, enterprise management, corporate partnerships, contracts, and marketplace inventory.
 
-Repository Structure
-* Web Core: Implemented inside the root project directory (Symfony).
-* Desktop Core: Implemented inside the `autolink-desktop/` directory (JavaFX).
+---
 
-Authentication
-* Multi-role authentication
-* User / Enterprise / Administrator accounts
-* Symfony Security
-* Dedicated firewalls
-* Role-Based Access Control (RBAC)
-* Dynamic navigation menus based on user roles
+## 🌟 Key Features
 
-Enterprise Profiles
-* Company profile management
-* Image upload
-* Embedded address management
-* Profile editing
-* Interactive JavaFX visual profile cards for the desktop management platform
+### 📂 Repository Layout
+* **Web Core:** Implemented inside the root project directory using the **Symfony** framework.
+* **Desktop Core:** Completely isolated inside the `autolink-desktop/` directory using **JavaFX**.
 
-Partnership Management
-* Companies can:
-  * Send partnership requests
-  * Accept requests
-  * Reject requests
-  * View pending partnerships
-* Each request contains:
-  * Company information
-  * Partnership type
-  * Tax identification
-  * Description
-* Integrated desktop form dialogs for creating and tracking partnership applications
+### 🔐 Authentication & Access Control
+* **Multi-role accounts:** Strict separation between User, Enterprise, and Administrator accounts.
+* **Symfony Security:** Configured dedicated firewalls and Role-Based Access Control (RBAC).
+* **Dynamic Navigation:** Front-end templates change instantly based on user clearance.
 
-Contracts
-* Implemented an enterprise-to-enterprise contract system.
-* Contracts can only be created when an accepted partnership already exists between both companies.
-* Automated administrative contract summary generator built into the JavaFX desktop views.
+### 🏢 Enterprise Profiles
+* Fully operational company profile management (including image uploading and profile editing).
+* Embedded physical address management sub-forms.
+* **Desktop Exclusive:** Interactive visual profile cards to easily view data from the administration panel.
 
-Marketplace Integration
-* Implemented enterprise-side marketplace management for recycled vehicle parts.
-* Entities include:
-  * Article
-  * MaterielRecyclable
+### 🤝 Partnership Management
+* **Corporate Workflows:** Allowed companies to send, accept, reject, and keep track of live partnership statuses.
+* **Detailed Record Payloads:** Every request captures company details, partnership classification type, official tax identification, and rich text descriptions.
+* **Desktop Tools:** Clean JavaFX modal form dialogs for creating and processing corporate applications.
 
-External Integrations
-* QR Code generation (Multi-platform tracking strings generated on both Symfony web views and JavaFX desktop canvas listeners)
-* WhatsApp notifications using Twilio API (Web side)
-* Corporate contract document rendering and PDF Exporting using Apache PDFBox (JavaFX Desktop exclusive)
+### 📜 B2B Contract Engine
+* Implemented a secure enterprise-to-enterprise contract system.
+* **Business Logic:** Contracts can strictly only be initialized if a mutual, accepted partnership already exists between the two entities.
+* **Desktop Integration:** Real-time administrative contract summary generator embedded within JavaFX layouts.
 
-Technologies
-* Symfony
-* PHP
-* Doctrine ORM
-* MySQL
-* Twig
-* Twilio API
-* chillerlan/php-qrcode
-* Javascript
-* Java
-* JavaFX
-* Apache PDFBox
+### 🛒 Marketplace Integration
+* Full backend control over enterprise-side inventory tracking for recycled vehicle components.
+* Core data entities managed: `Article` and `MaterielRecyclable`.
 
-Skills Demonstrated
-* Backend Development
-* Desktop Application Development (JavaFX)
-* Authentication & Authorization
-* Role-Based Access Control
-* Database Design
-* Doctrine ORM
-* Symfony Security
-* MVC Architecture
-* REST-style CRUD Development
-* Third-party API Integration
+### 🔌 Hardware & Third-Party APIs
+* **Dynamic QR Codes:** Multi-platform data string parsing deployed across both Symfony twig layers and JavaFX canvas view listeners.
+* **Automated Notifications:** Dispatched immediate WhatsApp updates via the **Twilio API** during critical pipeline changes.
+* **Document Exporters:** Native corporate printing layouts and professional PDF exporting powered by **Apache PDFBox** on the desktop side.
 
-Team Project
+---
 
-This module was developed as part of a five-member university software engineering project.
-This repository showcases only my individual contribution, while the complete application was developed collaboratively.
+## 🛠️ Technology Stack
+
+* **Web & Backend:** PHP, Symfony, Doctrine ORM, Twig, JavaScript
+* **Desktop Client:** Java, JavaFX, Apache PDFBox
+* **Database & Integrity:** MySQL
+* **Third-Party Integrations:** Twilio API, `chillerlan/php-qrcode`
+
+---
+
+## 📈 Engineering Skills Demonstrated
+
+* Core Backend Systems & MVC Architecture
+* Cross-Platform Desktop Development (JavaFX UI/UX)
+* Advanced Security Schemes & Access Control List (ACL) Policies
+* Relational Database Normalization & Object-Relational Mapping (ORM)
+* Clean REST-style CRUD Design
+* Third-Party API Engineering & Integration
+
+---
+
+## 👥 Team Project Note
+
+This module was developed as part of a five-member university software engineering project curriculum. This repository purposefully showcases **only my individual code contributions**, while the final umbrella application was built collaboratively.
