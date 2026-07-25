@@ -35,7 +35,7 @@ class PartnershipRequestController extends AbstractController
         // Query to get partnership requests
         $queryBuilder = $entityManager->getRepository(PartnershipRequest::class)->createQueryBuilder('p')
             ->where('p.entrepriseId = :entrepriseId')
-            ->setParameter('entrepriseId', $user->getId());
+            ->setParameter('entrepriseId', $user->getEntreprise()->getId());
     
             if ($search) {
                 $queryBuilder->andWhere('LOWER(p.tax_code) LIKE LOWER(:search)')
@@ -56,7 +56,7 @@ class PartnershipRequestController extends AbstractController
     
         if ($form->isSubmitted() && $form->isValid()) {
             // Set entreprise ID
-            $partnershipRequest->setEntrepriseId($user->getId());
+            $partnershipRequest->setEntrepriseId($user->getEntreprise()->getId());
     
             $entityManager->persist($partnershipRequest);
             $entityManager->flush();
@@ -90,7 +90,7 @@ class PartnershipRequestController extends AbstractController
             throw $this->createAccessDeniedException('Vous devez être connecté.');
         }
 
-        if ($partnershipRequest->getEntrepriseId() !== $user->getId()) {
+        if ($partnershipRequest->getEntrepriseId() !== $user->getEntreprise()->getId()) {
             throw $this->createAccessDeniedException('Vous n\'avez pas la permission de modifier cette demande.');
         }
 
@@ -114,7 +114,7 @@ class PartnershipRequestController extends AbstractController
     {
         $user = $this->getUser();
 
-        if ($partnershipRequest->getEntrepriseId() !== $user->getId()) {
+        if ($partnershipRequest->getEntrepriseId() !== $user->getEntreprise()->getId()) {
             throw $this->createAccessDeniedException('Vous n\'avez pas la permission de supprimer cette demande.');
         }
 

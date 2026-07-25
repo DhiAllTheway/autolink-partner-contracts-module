@@ -57,12 +57,6 @@ class Entreprise implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $field = null;
 
-    /**
-     * @var Collection<int, PartnershipRequest>
-     */
-    #[ORM\OneToMany(targetEntity: PartnershipRequest::class, mappedBy: 'entreprise')]
-    private Collection $partnershipRequests;
-
         /**
      * @var Collection<int, Contract>
      */
@@ -73,7 +67,6 @@ class Entreprise implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
-        $this->partnershipRequests = new ArrayCollection(); // Initialisation de la collection
         $this->contracts = new ArrayCollection();
     }
     public function getId(): ?int
@@ -203,36 +196,6 @@ class Entreprise implements UserInterface, PasswordAuthenticatedUserInterface
     public function setField(string $field): static
     {
         $this->field = $field;
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, PartnershipRequest>
-     */
-    public function getPartnershipRequests(): Collection
-    {
-        return $this->partnershipRequests;
-    }
-
-    public function addPartnershipRequest(PartnershipRequest $partnershipRequest): static
-    {
-        if (!$this->partnershipRequests->contains($partnershipRequest)) {
-            $this->partnershipRequests->add($partnershipRequest);
-            $partnershipRequest->setEntreprise($this);
-        }
-
-        return $this;
-    }
-
-    public function removePartnershipRequest(PartnershipRequest $partnershipRequest): static
-    {
-        if ($this->partnershipRequests->removeElement($partnershipRequest)) {
-            // set the owning side to null (unless already changed)
-            if ($partnershipRequest->getEntreprise() === $this) {
-                $partnershipRequest->setEntreprise(null);
-            }
-        }
-
         return $this;
     }
 

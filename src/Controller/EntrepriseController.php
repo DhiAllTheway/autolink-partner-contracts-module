@@ -83,7 +83,7 @@ public function dashboard(Request $request, EntityManagerInterface $entityManage
     $queryBuilder = $entityManager->getRepository(PartnershipRequest::class)
         ->createQueryBuilder('p')
         ->where('p.entrepriseId = :entrepriseId')
-        ->setParameter('entrepriseId', $user->getId());
+        ->setParameter('entrepriseId', $user->getEntreprise()->getId());
 
     // Apply search filter (companyEmail, phone, partnershipType)
     if (!empty($search)) {
@@ -124,7 +124,7 @@ public function edit(Request $request, EntityManagerInterface $entityManager, Pa
     $user = $this->getUser();
 
     // Ensure the request belongs to the logged-in entreprise
-    if ($partnershipRequest->getEntrepriseId() !== $user->getId()) {
+    if ($partnershipRequest->getEntrepriseId() !== $user->getEntreprise()->getId()) {
         throw $this->createAccessDeniedException('Vous n\'avez pas la permission de modifier cette demande.');
     }
 
