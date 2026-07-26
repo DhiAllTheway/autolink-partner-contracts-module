@@ -9,6 +9,7 @@ services:
       DATABASE_URL: mysql://root:@database:3306/autolinkdb
     depends_on:
       - database
+    restart: unless-stopped
 
   nginx:
     image: nginx:alpine
@@ -21,6 +22,7 @@ services:
       - ./docker/nginx/ssl:/etc/nginx/ssl
     depends_on:
       - php
+    restart: unless-stopped
 
   database:
     image: mysql:8.0
@@ -29,6 +31,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - database_data:/var/lib/mysql:rw
+    restart: unless-stopped
 
 volumes:
   database_data:
